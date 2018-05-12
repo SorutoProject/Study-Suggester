@@ -1,0 +1,30 @@
+﻿<html>
+<head>
+<title>Study Suggester test</title>
+<meta charset="utf-8">
+<script src="study-suggester.js"></script>
+</head>
+<body>
+<div id="titlebar">&nbsp;<b><span id="title"></span></b></div>
+<div id="terminal">
+<div id="question"></div>
+<input type="text" id="answer" onkeydown="key_on(event)">
+<input type="button" onclick="ans();" value="解答" id="ansb">
+</div>
+<style>
+#titlebar{
+background:#ededed;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:30px;
+}
+#terminal{
+position:absolute;
+top:41px;
+left:0;
+width:100%;
+height:40px;
+}
+</style>
