@@ -1,3 +1,4 @@
 # Study-Suggester
 アプリやWebブラウザで使える、オープンソースの勉強アプリです。  
-問題定義ファイルは、[こちら](https://github.com/SorutoProject/Study-Suggester-DB)にあります。
+GitHub Pagesで公開しています。  
+[今すぐ試す](http://study-suggester.cf)
