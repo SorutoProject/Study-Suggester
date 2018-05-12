@@ -22,15 +22,15 @@ for(var i=0;pair[i];i++) {
     // 本番用
     if (xhr.readyState === 4 && xhr.status === 200){
 		questions = xhr.responseText;
+		next();
     }
     // ローカルファイル用
     if (xhr.readyState === 4 && xhr.status === 0){
-      var result1 = document.getElementById('xhr-result1');
       questions = xhr.responseText;
+	  next();
     }
   };
   xhr.send(null);
-  next();
 };
 function next(){
 if(answered >= quesnum){
