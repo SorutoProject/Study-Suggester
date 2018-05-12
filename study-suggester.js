@@ -1,7 +1,7 @@
 ﻿//グローバル変数の設定
 var questions = null;
 var min = 1 ;
-var max = questions.split("\n").length - 1;
+var max = null;
 var quesnum = 3//解く問題の数
 var answered = 0;//解いた問題の数
 var num = null;
@@ -22,11 +22,13 @@ for(var i=0;pair[i];i++) {
     // 本番用
     if (xhr.readyState === 4 && xhr.status === 200){
 		questions = xhr.responseText;
+		max = questions.split("\n").length - 1;
 		next();
     }
     // ローカルファイル用
     if (xhr.readyState === 4 && xhr.status === 0){
       questions = xhr.responseText;
+	  max = questions.split("\n").length - 1;
 	  next();
     }
   };
