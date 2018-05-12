@@ -5,7 +5,7 @@ var max = null;
 var quesnum = 3//解く問題の数
 var answered = 0;//解いた問題の数
 var num = null;
-var queslist = questions.split("\n");
+var queslist = null;
 var anstext = null;
 window.onload = function(){
 document.getElementById("title").innerHTML = queslist[0].split("\t")[0];//タイトルの表示
@@ -23,12 +23,14 @@ for(var i=0;pair[i];i++) {
     if (xhr.readyState === 4 && xhr.status === 200){
 		questions = xhr.responseText;
 		max = questions.split("\n").length - 1;
+		queslist = questions.split("\n");
 		next();
     }
     // ローカルファイル用
     if (xhr.readyState === 4 && xhr.status === 0){
       questions = xhr.responseText;
 	  max = questions.split("\n").length - 1;
+	  queslist = questions.split("\n");
 	  next();
     }
   };
