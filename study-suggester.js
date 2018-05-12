@@ -8,7 +8,6 @@ var num = null;
 var queslist = null;
 var anstext = null;
 window.onload = function(){
-document.getElementById("title").innerHTML = queslist[0].split("\t")[0];//タイトルの表示
 //URLパラメータ取得
 var arg = new Object;
 var pair=location.search.substring(1).split('&');
@@ -24,6 +23,7 @@ for(var i=0;pair[i];i++) {
 		questions = xhr.responseText;
 		max = questions.split("\n").length - 1;
 		queslist = questions.split("\n");
+		document.getElementById("title").innerHTML = queslist[0].split("\t")[0];//タイトルの表示
 		next();
     }
     // ローカルファイル用
@@ -31,6 +31,7 @@ for(var i=0;pair[i];i++) {
       questions = xhr.responseText;
 	  max = questions.split("\n").length - 1;
 	  queslist = questions.split("\n");
+	  document.getElementById("title").innerHTML = queslist[0].split("\t")[0];//タイトルの表示
 	  next();
     }
   };
