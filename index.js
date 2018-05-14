@@ -1,4 +1,5 @@
-﻿//メインメニュー設定
+﻿//Study Suggester Top Menu
+//メインメニュー設定
 var main = null;
 var bl = '<a href="javascript:void(0)" onclick="change(\'top\')" class="bp">← 戻る</a><br>'
 window.onload = function(){
@@ -13,7 +14,7 @@ function change(n){
 		var sc = "現在、項目はありません。";
 	}
 	else if(n=="sc"){
-		var sc = '<a href="a/?q=rekishi-sample" class="sl">歴史サンプル問題</a>';
+		var sc = '<a href="a/?q=rekishi-nenpyo-sample" class="sl">歴史サンプル問題</a>';
 	}
 	else if(n=="top"){
 		main.innerHTML = '<a href="javascript:void(0);" onclick="change(\'jp\')" class="sl">国語</a><a href="javascript:void(0);" onclick="change(\'ma\')" class="sl">数学</a><a href="javascript:void(0);" onclick="change(\'sc\')" class="sl">社会</a>';
