@@ -43,6 +43,11 @@ for(var i=0;pair[i];i++) {
 	  document.getElementById("title").innerHTML = queslist[0].split("\t")[0];//タイトルの表示
 	  next();
     }
+	if(xhr.readyState === 4 && xhr.status === 404){
+	document.getElementById("question").innerHTML = '<b>問題定義ファイルが見つかりません。<br>トップメニューからやり直してください。。</b><br><a href="../">トップメニューへ</a>';
+	document.getElementById("answer").style.display = "none";
+	document.getElementById("ansb").style.display = "none";
+	}
   };
   xhr.send(null);
 };
