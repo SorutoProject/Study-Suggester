@@ -12,6 +12,16 @@ body{
  font-size:10pt;
  text-shadow: 5px 5px 2px #1a1a1a;
 }
+.bp{
+  color:#fafafa;
+  text-decoration: none;
+  font-weight: bold;
+  font-size:14pt;
+  border-radius: 4px;
+}
+.bp:hover{
+  background:#606060;
+}
 
 /*端末別*/
 @media screen and (min-width:480px){
