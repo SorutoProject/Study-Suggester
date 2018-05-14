@@ -1,4 +1,7 @@
 /*共通*/
+*{
+  font-family: 'メイリオ', Meiryo,'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+}
 body{
   background:#3c3c3c;
   color:#fafafa;
