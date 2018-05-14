@@ -85,4 +85,6 @@ ans();
 function reload(){
 	answered = 0;
 	next();
+	document.getElementById("answer").style.display = "block";
+	document.getElementById("ansb").style.display = "block";
 }
