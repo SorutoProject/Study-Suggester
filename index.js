@@ -7,18 +7,21 @@ window.onload = function(){
 }
 function change(n){
 	if(n=="jp"){
-		main.innerHTML = "現在、項目はありません。";
+		var sc = "現在、項目はありません。";
 	}
 	else if(n=="ma"){
-		main.innerHTML = "現在、項目はありません。";
+		var sc = "現在、項目はありません。";
 	}
 	else if(n=="sc"){
-		main.innerHTML = bl+'<br><a href="a/?q=rekishi-sample" class="sl">歴史サンプル問題</a>';
+		var sc = '<a href="a/?q=rekishi-sample" class="sl">歴史サンプル問題</a>';
 	}
 	else if(n=="top"){
 		main.innerHTML = '<a href="javascript:void(0);" onclick="change(\'jp\')" class="sl">国語</a><a href="javascript:void(0);" onclick="change(\'ma\')" class="sl">数学</a><a href="javascript:void(0);" onclick="change(\'sc\')" class="sl">社会</a>';
+		return false;
+		
 	}
 	else{
-		main.innerHTML = bl + "指定されたメニューIDはありません。"
+		var sc = "指定されたメニューIDはありません。"
 	}
+main.innerHTML = bl + sc;
 }
