@@ -32,7 +32,9 @@ for(var i=0;pair[i];i++) {
 		questions = xhr.responseText;
 		max = questions.split("\n").length - 1;
 		queslist = questions.split("\n");
-		document.getElementById("title").innerHTML = queslist[0].split("\t")[0];//タイトルの表示
+		var title = queslist[0].split("\t")[0];
+		document.getElementById("title").innerHTML = title//タイトルの表示
+		document.title = title + " - Study Suggester";
 		next();
     }
     // ローカルファイル用
@@ -40,7 +42,9 @@ for(var i=0;pair[i];i++) {
       questions = xhr.responseText;
 	  max = questions.split("\n").length - 1;
 	  queslist = questions.split("\n");
-	  document.getElementById("title").innerHTML = queslist[0].split("\t")[0];//タイトルの表示
+	  var title = queslist[0].split("\t")[0];
+	  document.getElementById("title").innerHTML = title//タイトルの表示
+	  document.title = title + " - Study Suggester";
 	  next();
     }
 	if(xhr.readyState === 4 && xhr.status === 404){
