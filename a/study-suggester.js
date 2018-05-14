@@ -44,7 +44,7 @@ for(var i=0;pair[i];i++) {
 };
 function next(){
 if(answered >= quesnum){
-document.getElementById("question").innerHTML = "<b>これで問題は終わりです。<br>お疲れ様でした。</b>";
+document.getElementById("question").innerHTML = '<b>これで問題は終わりです。<br>お疲れ様でした。</b><br><a href="../">トップメニューへ</a>';
 document.getElementById("answer").style.display = "none";
 document.getElementById("ansb").style.display = "none";
 }else{
