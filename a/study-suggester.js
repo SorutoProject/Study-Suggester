@@ -16,7 +16,9 @@ for(var i=0;pair[i];i++) {
     arg[kv[0]]=kv[1];
 }
   if(arg.q === undefined || arg.q == ""){
-	  document.getElementById("question").innerHTML = '<b>問題IDが指定されていません。<br>トップメニューからやり直してください。</b><br><a href="../">トップメニュー</a>';
+	document.getElementById("question").innerHTML = '<b>問題IDが指定されていません。<br>トップメニューからやり直してください。</b><br><a href="../">トップメニュー</a>';
+	document.getElementById("answer").style.display = "none";
+	document.getElementById("ansb").style.display = "none";
   }
   var xhr = new XMLHttpRequest();
   xhr.open('GET', "../txtdb/" + arg.q + ".txt", true);
