@@ -53,7 +53,7 @@ for(var i=0;pair[i];i++) {
 };
 function next(){
 if(answered >= quesnum){
-document.getElementById("question").innerHTML = 'これで問題は終わりです。<br>お疲れ様でした。<br>※出題問題数はトップメニューの設定ボタンから変更できます。<br><a href="../">トップメニューへ</a>';
+document.getElementById("question").innerHTML = 'これで問題は終わりです。<br>お疲れ様でした。<br>※出題問題数はトップメニューの設定ボタンから変更できます。<br><a href="../">トップメニューへ</a><br><a href="javascript:location.reload();">もう一度解く</a>';
 document.getElementById("answer").style.display = "none";
 document.getElementById("ansb").style.display = "none";
 }else{
