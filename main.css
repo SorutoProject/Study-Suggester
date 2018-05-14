@@ -22,7 +22,20 @@ body{
 .bp:hover{
   background:#606060;
 }
-
+input[type="button"]{
+  width:80%;
+  height:40px;
+  background:#3c3c3c;
+  border:#2222dd 1px solid;
+  color:#fafafa;
+}
+#seticon{
+	width:24px;
+	height:24px;
+	position:absolute;
+	top:10px;
+	right:10px;
+}
 /*端末別*/
 @media screen and (min-width:480px){
 .sl{

@@ -2,7 +2,11 @@
 var questions = null;
 var min = 1 ;
 var max = null;
-var quesnum = prompt("何問解きますか?\n半角数字で入力してください。")//解く問題の数
+if(!localStorage.quesno!=undefined){
+	var quesnum  = parseInt(localStorage.quesno);
+}else{
+	var quesnum = 20;
+}
 var answered = 0;//解いた問題の数
 var num = null;
 var queslist = null;

@@ -25,3 +25,13 @@ function change(n){
 	}
 main.innerHTML = bl + sc;
 }
+function Set(){
+	so.modal.custom('設定<br>通常出題する問題数<br><input type="number" id="NofQNo">問<br><br><input type="button" onclick="saveSet()" value="保存">');
+	if(localStorage.quesno != undefined){
+		document.getElementById("NofQNo").value=localStorage.quesno;
+	}
+}
+function saveSet(){
+	localStorage.quesno = document.getElementById("NofQNo").value;
+	so.modal.close();
+}
