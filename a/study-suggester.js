@@ -48,7 +48,8 @@ for(var i=0;pair[i];i++) {
 	  next();
     }
 	if(xhr.readyState === 4 && xhr.status === 404){
-	document.getElementById("question").innerHTML = '<b>問題定義ファイルが見つかりません。<br>トップメニューからやり直してください。。</b><br><a href="../">トップメニューへ</a>';
+	document.getElementById("question").innerHTML = '問題定義ファイルが見つかりません。<br>トップメニューからやり直してください。。<br><a href="../">トップメニューへ</a>';
+	document.getElementById("title").innerHTML = "Error!";
 	document.getElementById("answer").style.display = "none";
 	document.getElementById("ansb").style.display = "none";
 	}
