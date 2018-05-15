@@ -68,7 +68,7 @@ document.getElementById("answer").value = "";
 document.getElementById("answer").focus();
 var ques = queslist[num].split("\t");
 document.getElementById("question").innerHTML = ques[0];
-anstext = ques[1].replace(/\r?\n/g, '');//改行コード%0Dを削除
+anstext = decodeURI(encodeURI(ques[1]).split("%0D").join(""));//改行コード%0Dを削除
 }
 }
 function ans(){
