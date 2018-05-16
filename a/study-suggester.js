@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿//グローバル変数の設定
 var questions = null;
 var min = 1 ;
