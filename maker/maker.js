@@ -5,9 +5,12 @@
 function add(){
 	var qvl = document.getElementById("q").value;
 	var avl = document.getElementById("a").value;
-	if(qvl==""||avl==""){
-		alert("問題もしくは答えが入力されていません。")
+	if(qvl==""){
+		alert("問題が入力されていません。")
 		document.getElementById("q").focus();
+	else if(avl==""){
+		alert("答えが入力されていません。")
+		document.getElementById("a").focus();
 	}else{
 		var qlist = document.getElementById("qlist");
 		var qlistvl = qlist.value;
