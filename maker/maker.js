@@ -6,20 +6,22 @@ function add(){
 	var qvl = document.getElementById("q").value;
 	var avl = document.getElementById("a").value;
 	if(qvl==""){
-		alert("問題が入力されていません。")
+		alert("問題が入力されていません。");
 		document.getElementById("q").focus();
+	}
 	else if(avl==""){
-		alert("答えが入力されていません。")
+		alert("答えが入力されていません。");
 		document.getElementById("a").focus();
 	}else{
 		var qlist = document.getElementById("qlist");
 		var qlistvl = qlist.value;
 		if(qlistvl == ""){
 			alert("問題を追加する前に、タイトルを入力してください");
-	}else{
+	 }else{
 		qlist.value = qlistvl + "\n" + qvl + "\t" + avl;
 		document.getElementById("q").value = "";
 		document.getElementById("a").value = "";
+		document.getElementById("q").focus();
 	}
 	}	
 }
@@ -85,7 +87,6 @@ if(event.keyCode === 13){
 	}
 	else if(num==2){
 		add();
-		document.getElementById("q").focus();
 	}
 	else if(num==3){
 		fileDown();
