@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+<title>問題作成ツール - Study Suggester</title>
+<link rel="shortcut icon" href="../favicon.ico">
+<meta charset="utf-8">
+<script src="maker.js"></script>
+</head>
+<body>
+<style>
+  *{
+  font-family: 'メイリオ', Meiryo,'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+  }
+  body{
+  background:#3c3c3c;
+  color:#fafafa;
+  }
+  a{
+  color:#fafafa;
+  }
+  input[type="text"]{
+  width:100%;
+  height:30px;
+  font-size:11pt;
+  background:#000;
+  color:#fafafa;
+  border:#dadada 1px solid;
+  }
+  #qm{
+  background:#6c6c6c;
+  }
+  textarea{
+  width:100%;
+  height:300px;
+  background:#000;
+  color:#fafafa;
+  border:#dadada 1px solid;
+  font-size:10pt;
+  }
+</style>
+  <a href="../">&lt; 戻る</a><br><b>Study Suggester 問題ファイル作成ツール</b>
+  <p>Study Suggesterの問題ファイルを作成できます。</p>
+  <p>この問題群のタイトル<br><input type="text" id="title" placeholder="ここにタイトルを入力 (例:歴史 大正 年号  ※ただし、解答時は半角数字のみで答えること。)" autocomplete="off"><br><input type="button" onclick="titleChange();" value="タイトル変更"> ←<b>タイトル</b>の入力が終わったらクリック</p><div id="qm">問題<br><input type="text" id="q" placeholder="ここに問題を入力 (例:ニューヨークで世界恐慌が起きたのは何年?)" autocomplete="off"><br>答え<br><input type="text" id="a" placeholder="ここに答えを入力 (例:1929)" autocomplete="off"><br><input type="button" onclick="add();" value="追加"> ←<b>問題</b>と<b>答え</b>の入力が終わったらクリック</div>
+  問題リスト<br><textarea id="qlist"></textarea>
+</body>
+</html>
