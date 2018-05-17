@@ -13,6 +13,7 @@ a:hover{
 }
 @media screen and (min-width:480px){
 body{
+	font-size:14pt;
 	text-align:center;
 }
 #titlebar{
