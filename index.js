@@ -5,6 +5,12 @@ var bl = '<a href="javascript:void(0)" onclick="change(\'top\')" class="bp">← 
 window.onload = function(){
 	main = document.getElementById("main");
 	main.innerHTML = '<a href="javascript:void(0);" onclick="change(\'jp\')" class="sl">国語</a><a href="javascript:void(0);" onclick="change(\'ma\')" class="sl">数学</a><a href="javascript:void(0);" onclick="change(\'sc\')" class="sl">社会</a>';
+	tippy('.title', {
+  delay: 100,
+  arrow: true,
+  duration: 200,
+  placement: 'left'
+});
 }
 function change(n){
 	if(n=="jp"){
@@ -35,4 +41,18 @@ function Set(){
 function saveSet(){
 	localStorage.quesno = document.getElementById("NofQNo").value;
 	so.modal.close();
+}
+function fs(){
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+    requestFullScreen.call(docEl);
+  }
+  else {
+    cancelFullScreen.call(doc);
+  }
 }
