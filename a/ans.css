@@ -12,6 +12,9 @@ a:hover{
   background:#606060;
 }
 @media screen and (min-width:480px){
+body{
+	text-align:center;
+}
 #titlebar{
 background:#5c5c5c;
 position:absolute;
