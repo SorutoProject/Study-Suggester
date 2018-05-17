@@ -1,5 +1,6 @@
 ﻿//グローバル変数の設定
 var questions = null;
+var mode = null;
 var min = 1 ;
 var max = null;
 if(!localStorage.quesno!=undefined){
@@ -32,8 +33,9 @@ for(var i=0;pair[i];i++) {
 		questions = xhr.responseText;
 		max = questions.split("\n").length - 1;
 		queslist = questions.split("\n");
-		var title = queslist[0].split("\t")[0];
+		var title = queslist[0].split(",")[0];
 		document.getElementById("title").innerHTML = title//タイトルの表示
+	    mode = queslist[0].split(",")[1];
 		document.title = title + " - Study Suggester";
 		next();
     }
@@ -42,8 +44,9 @@ for(var i=0;pair[i];i++) {
       questions = xhr.responseText;
 	  max = questions.split("\n").length - 1;
 	  queslist = questions.split("\n");
-	  var title = queslist[0].split("\t")[0];
+	  var title = queslist[0].split(",")[0];
 	  document.getElementById("title").innerHTML = title//タイトルの表示
+	  mode = queslist[0].split(",")[1];
 	  document.title = title + " - Study Suggester";
 	  next();
     }
@@ -66,7 +69,7 @@ answered = answered + 1;
 num = Math.floor( Math.random() * (max + 1 - min) ) + min ;;//問題No.の作成
 document.getElementById("answer").value = "";
 document.getElementById("answer").focus();
-var ques = queslist[num].split("\t");
+var ques = queslist[num].split(",");
 document.getElementById("question").innerHTML = ques[0];
 anstext = decodeURI(encodeURI(ques[1]).split("%0D").join(""));//改行コード%0Dを削除
 }
@@ -81,6 +84,14 @@ alert("解答が入力されていません。");
 }else{
 alert("不正解です。\nもう一度解いてみましょう。");
 }
+}
+function bans(n){
+var ans = document.getElementById("b" + n).value;
+if(ans == anstext){
+	next();
+}else{
+	alert("不正解です。\nもう一度解いてみましょう。");
+}	
 }
 function key_on(event){
 if(event.keyCode == 13){

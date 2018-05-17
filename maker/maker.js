@@ -2,9 +2,10 @@
 	var title = document.getElementById("title");
 	title.focus();
 }
+window.onbeforeunload=function(e){return 'このページから出ると、すべてのタブの編集内容が失われますが、続行しますか?';}
 function add(){
-	var qvl = document.getElementById("q").value;
-	var avl = document.getElementById("a").value;
+	var qvl = document.getElementById("q").value.split(",").join("、");
+	var avl = document.getElementById("a").value.split(",").join("、");
 	if(qvl==""){
 		alert("問題が入力されていません。");
 		document.getElementById("q").focus();
@@ -18,7 +19,7 @@ function add(){
 		if(qlistvl == ""){
 			alert("問題を追加する前に、タイトルを入力してください");
 	 }else{
-		qlist.value = qlistvl + "\n" + qvl + "\t" + avl;
+		qlist.value = qlistvl + "\n" + qvl + "," + avl;
 		document.getElementById("q").value = "";
 		document.getElementById("a").value = "";
 		document.getElementById("q").focus();
