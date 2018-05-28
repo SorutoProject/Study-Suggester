@@ -6,7 +6,7 @@ Written by Soruto Proejct
 #smodal-modal{
   background: #3c3c3c;
   color:#fafafa;
-  z-index: 101;
+  z-index: 102;
   position:absolute;
   top:0;
   left:0;
@@ -55,7 +55,7 @@ Written by Soruto Proejct
 }
 #smodal-modal-bg{
   z-index: 100;
-  background-image: url(ansback.png);
+  background:rgba(10,10,10,0.8);
   position: fixed;
   top:0;
   left:0;

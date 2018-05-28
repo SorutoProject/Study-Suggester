@@ -25,6 +25,8 @@ window.onload = function(){
   duration: 200,
   placement: 'left'
 });
+timeUpdate();
+window.setInterval("timeUpdate()",500);
 }
 function change(n){
 	if(n=="jp"){
@@ -68,7 +70,7 @@ function showQdiv(q){
 		"title":"<b>問題</b>",
 		"message":'<div id="empty"></div><div id="titlebar"><span id="title">読み込み中...</span></div><div id="terminal"><div id="question"></div><input type="text" id="answer" onkeydown="key_on(event)"><br><input type="button" onclick="ans();" value="解答" id="ansb"></div>',
 		"okButtonValue":"やめる",
-		"width":"calc(100% - 50px)",
+		"width":"calc(100% - 60px)",
 		"height":"calc(100% - 50px)"
 		});
 	answered = 0;
@@ -174,4 +176,16 @@ function fs() {
     cancelFullScreen.call(doc);
   }
 }
+function timeUpdate(){
+	var time = new Date();
+	var year = time.getFullYear();
+	var month = time.getMonth() + 1;
+	var date = time.getDate();
+	var hour = time.getHours();
+	var min = time.getMinutes();
+	var dayOfWeek = time.getDay() ;
+	var dayOfWeekStr = [ "日", "月", "火", "水", "木", "金", "土" ][dayOfWeek] ;
+	document.getElementById("timebar").innerHTML = year + "年" + month + "月" + date + "日(" + dayOfWeekStr + ")&nbsp;&nbsp;" + hour + "時" + min + "分"　+ "&nbsp;&nbsp;";
+}
+
 
