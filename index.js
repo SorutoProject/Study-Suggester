@@ -113,9 +113,10 @@ function Load(q){
 };
 function next(){
 if(answered >= quesnum){
-document.getElementById("question").innerHTML = 'これで問題は終わりです。<br>お疲れ様でした。<br>※出題問題数はトップメニューの設定ボタンから変更できます。<br><a href="../">トップメニューへ</a><br><a href="javascript:void(0);" onclick="reload();">もう一度この問題を解く</a>';
+document.getElementById("question").innerHTML = 'これで問題は終わりです。<br>お疲れ様でした。<br>※出題問題数はトップメニューの設定ボタンから変更できます。<br><a href="javascript:void(0);" onclick="reload();">もう一度この問題を解く</a>';
 document.getElementById("answer").style.display = "none";
 document.getElementById("ansb").style.display = "none";
+document.getElementById("smodal-ok-button").value = "トップへ";
 }else{
 answered = answered + 1;
 num = Math.floor( Math.random() * (max + 1 - min) ) + min ;;//問題No.の作成
@@ -153,6 +154,7 @@ ans();
 function reload(){
 	answered = 0;
 	next();
+document.getElementById("smodal-ok-button").value = "やめる";
 document.getElementById("answer").style.display = "inline";
 document.getElementById("ansb").style.display = "inline";
 }
