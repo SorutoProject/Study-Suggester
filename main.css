@@ -59,6 +59,16 @@ input[type="button"]{
 	top:48px;
 	right:10px;
 }
+#ansb{
+    background:#3c3c3c;
+  color:#fafafa;
+  margin-top:10px;
+  font-size:10pt;
+  border:#5555aa 1px solid!important;;
+  transition-duration: 0.2s;
+  border-radius: 5px;
+  outline: none;
+}
 /*端末別*/
 @media screen and (min-width:480px){
 .sl{
@@ -76,6 +86,12 @@ input[type="button"]{
   font-size:18pt;
   text-align: center;
 }
+  #ansb{
+    width:150px;
+}
+  #answer{
+    width:250px;
+  }
 }
 @media screen and (max-width:479px){
 .sl{
@@ -93,4 +109,16 @@ input[type="button"]{
   .sl:hover{
     background:#bababa;
   }
+#question{
+  font-size:10pt;
+  font-weight:bold;
+}
+  #answer{
+    width:99%;
+    border-radius: 5px;
+    height:40px;
+  }
+}
+#so-modal{
+  z-index: 102;
 }

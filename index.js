@@ -34,7 +34,7 @@ function change(n){
 		var sc = "現在、項目はありません。";
 	}
 	else if(n=="sc"){
-		var sc = '<a href="javascript:void(0)" onclick="showQdiv(\'rekishi-nenpyo-sample\')" class="sl">歴史サンプル問題</a>';
+		var sc = '<a href="javascript:void(0)" onclick="showQdiv(\'rekishi-nenpyo-sample\')" class="sl">歴史サンプル問題</a><a href="javascript:void(0)" onclick="showQdiv(\'syakai-edo-sengo\')" class="sl">江戸・戦後</a>';
 	}
 	else if(n=="top"){
 		main.innerHTML = '<a href="javascript:void(0);" onclick="change(\'jp\')" class="sl">国語</a><a href="javascript:void(0);" onclick="change(\'ma\')" class="sl">数学</a><a href="javascript:void(0);" onclick="change(\'sc\')" class="sl">社会</a>';
@@ -66,10 +66,10 @@ function saveSet(){
 function showQdiv(q){
 	smodal.alert({
 		"title":"<b>問題</b>",
-		"message":'<div id="titlebar"><span id="title">読み込み中...</span></div><div id="terminal"><div id="question"></div><input type="text" id="answer" onkeydown="key_on(event)"><input type="button" onclick="ans();" value="解答" id="ansb"></div>',
+		"message":'<div id="empty"></div><div id="titlebar"><span id="title">読み込み中...</span></div><div id="terminal"><div id="question"></div><input type="text" id="answer" onkeydown="key_on(event)"><br><input type="button" onclick="ans();" value="解答" id="ansb"></div>',
 		"okButtonValue":"やめる",
 		"width":"calc(100% - 50px)",
-		"height":"480px"
+		"height":"calc(100% - 50px)"
 		});
 	answered = 0;
 	Load(q);
