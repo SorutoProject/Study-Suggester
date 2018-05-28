@@ -22,17 +22,17 @@ Written by Soruto Proejct
   cursor: default;
 }
 .smodal-modal-opening{
-    animation: fadeIn 0.2s ease 0s 1 normal;
+    animation: fadeIn 0.4s ease 0s 1 normal;
 }
 .smodal-modal-closing{
     animation: fadeOut 2s ease 0s 1 normal forwards;
 }
 @keyframes fadeIn {
-  0% {top: -9000px;}
-  100% {top:0}
+  0% {opacity: 0}
+  100% {opacity: 1}
 }
 @keyframes fadeOut {
-  100% {top:-9000px;}
+  100% {opacity: 0;z-index: -1;}
 }
 .smodal-modal-button{
   background:#3c3c3c;
