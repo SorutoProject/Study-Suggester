@@ -3,8 +3,8 @@
   font-family: 'メイリオ', Meiryo,'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
 }
 body{
-  background:#3c3c3c;
-  color:#fafafa;
+  color:#2c2c2c;
+  background-image:url(b017.jpg);
 }
 a{
   text-align: left;
@@ -13,7 +13,7 @@ a{
 }
 .ptitle{
   font-size:16pt;
-  text-shadow: 5px 5px 2px #1a1a1a;
+  text-shadow: 2px 2px 7px #1a1a1a;
   font-weight: bold;
 }
 .desc{
@@ -21,14 +21,14 @@ a{
  text-shadow: 5px 5px 2px #1a1a1a;
 }
 .bp{
-  color:#fafafa;
+  color:#3c3c3c;
   text-decoration: none;
   font-weight: bold;
   font-size:14pt;
   border-radius: 4px;
 }
 .bp:hover{
-  background:#606060;
+  background:#ededed;
 }
 input[type="button"]{
   width:80%;
@@ -73,10 +73,10 @@ input[type="button"]{
 @media screen and (min-width:480px){
 .sl{
   display:block;
-  background:#fafafa;
+  background:#3c3c3c;
   width:300px;
   height:50px;
-  color:#3c3c3c;
+  color:#fafafa;
   border-radius:5px;
   text-decoration:none;
   margin:0 auto;
