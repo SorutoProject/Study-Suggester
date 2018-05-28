@@ -133,9 +133,9 @@ if(ans == anstext){
 next();
 }
 else if(ans==""){
-alert("解答が入力されていません。");
+so.modal.al("入力されていません","解答が入力されていません。");
 }else{
-alert("不正解です。\nもう一度解いてみましょう。");
+so.modal.al("不正解","不正解です。<br>もう一度解いてみましょう。");
 }
 }
 function bans(n){
@@ -143,7 +143,7 @@ var ans = document.getElementById("b" + n).value;
 if(ans == anstext){
 	next();
 }else{
-	alert("不正解です。\nもう一度解いてみましょう。");
+	so.modal.al("不正解","不正解です。<br>もう一度解いてみましょう。");
 }	
 }
 function key_on(event){
