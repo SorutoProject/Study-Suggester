@@ -55,7 +55,7 @@ Written by Soruto Proejct
 }
 #smodal-modal-bg{
   z-index: 100;
-  background:rgba(0,0,0,0.6);
+  background-image: url(ansback.png);
   position: fixed;
   top:0;
   left:0;
