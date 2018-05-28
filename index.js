@@ -1,4 +1,18 @@
 ﻿//Study Suggester Top Menu
+//グローバル変数の設定
+var questions = null;
+var mode = null;
+var min = 1 ;
+var max = null;
+if(!localStorage.quesno!=undefined){
+	var quesnum  = parseInt(localStorage.quesno);
+}else{
+	var quesnum = 20;
+}
+var answered = 0;//解いた問題の数
+var num = null;
+var queslist = null;
+var anstext = null;
 //メインメニュー設定
 var main = null;
 var bl = '<a href="javascript:void(0)" onclick="change(\'top\')" class="bp">← 戻る</a><br>'
@@ -20,7 +34,7 @@ function change(n){
 		var sc = "現在、項目はありません。";
 	}
 	else if(n=="sc"){
-		var sc = '<a href="a/?q=rekishi-nenpyo-sample" class="sl">歴史サンプル問題</a>';
+		var sc = '<a href="javascript:void(0)" onclick="showQdiv(\'rekishi-nenpyo-sample\')" class="sl">歴史サンプル問題</a>';
 	}
 	else if(n=="top"){
 		main.innerHTML = '<a href="javascript:void(0);" onclick="change(\'jp\')" class="sl">国語</a><a href="javascript:void(0);" onclick="change(\'ma\')" class="sl">数学</a><a href="javascript:void(0);" onclick="change(\'sc\')" class="sl">社会</a>';
@@ -33,26 +47,111 @@ function change(n){
 main.innerHTML = bl + sc;
 }
 function Set(){
-	so.modal.custom('設定<br>通常出題する問題数<br><input type="number" id="NofQNo">問<br><br><input type="button" onclick="saveSet()" value="保存">');
+	smodal.alert({
+		"title":"<b>設定</b>",
+		"message":'通常出題する問題数<br><input type="number" id="NofQNo">問',
+		"backClose":true,
+		"height":"180px",
+		"okFunction":"saveSet();",
+		"okButtonValue":"保存"
+	})
 	if(localStorage.quesno != undefined){
 		document.getElementById("NofQNo").value=localStorage.quesno;
 	}
 }
 function saveSet(){
 	localStorage.quesno = document.getElementById("NofQNo").value;
-	so.modal.close();
+	quesnum = localStorage.quesno;
 }
-function fs(){
-  var doc = window.document;
-  var docEl = doc.documentElement;
-
-  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-
-  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-    requestFullScreen.call(docEl);
-  }
-  else {
-    cancelFullScreen.call(doc);
-  }
+function showQdiv(q){
+	smodal.alert({
+		"title":"<b>問題</b>",
+		"message":'<div id="titlebar"><span id="title">読み込み中...</span></div><div id="terminal"><div id="question"></div><input type="text" id="answer" onkeydown="key_on(event)"><input type="button" onclick="ans();" value="解答" id="ansb"></div>',
+		"okButtonValue":"やめる",
+		"width":"calc(100% - 50px)",
+		"height":"480px"
+		});
+	Load(q);
+	
+	
+}
+function Load(q){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', "txtdb/" + q + ".txt", true);
+  xhr.onreadystatechange = function(){
+    // 本番用
+    if (xhr.readyState === 4 && xhr.status === 200){
+		questions = xhr.responseText;
+		max = questions.split("\n").length - 1;
+		queslist = questions.split("\n");
+		var title = queslist[0].split(",")[0];
+		document.getElementById("title").innerHTML = title//タイトルの表示
+	    mode = queslist[0].split(",")[1];
+		document.title = title + " - Study Suggester";
+		next();
+    }
+    // ローカルファイル用
+    if (xhr.readyState === 4 && xhr.status === 0){
+      questions = xhr.responseText;
+	  max = questions.split("\n").length - 1;
+	  queslist = questions.split("\n");
+	  var title = queslist[0].split(",")[0];
+	  document.getElementById("title").innerHTML = title//タイトルの表示
+	  mode = queslist[0].split(",")[1];
+	  document.title = title + " - Study Suggester";
+	  next();
+    }
+	if(xhr.readyState === 4 && xhr.status === 404){
+	document.getElementById("question").innerHTML = '問題定義ファイルが見つかりません。<br>トップメニューからやり直してください。。<br><a href="../">トップメニューへ</a>';
+	document.getElementById("title").innerHTML = "Error!";
+	document.getElementById("answer").style.display = "none";
+	document.getElementById("ansb").style.display = "none";
+	}
+  };
+  xhr.send(null);
+};
+function next(){
+if(answered >= quesnum){
+document.getElementById("question").innerHTML = 'これで問題は終わりです。<br>お疲れ様でした。<br>※出題問題数はトップメニューの設定ボタンから変更できます。<br><a href="../">トップメニューへ</a><br><a href="javascript:void(0);" onclick="reload();">もう一度この問題を解く</a>';
+document.getElementById("answer").style.display = "none";
+document.getElementById("ansb").style.display = "none";
+}else{
+answered = answered + 1;
+num = Math.floor( Math.random() * (max + 1 - min) ) + min ;;//問題No.の作成
+document.getElementById("answer").value = "";
+document.getElementById("answer").focus();
+var ques = queslist[num].split(",");
+document.getElementById("question").innerHTML = ques[0];
+anstext = decodeURI(encodeURI(ques[1]).split("%0D").join(""));//改行コード%0Dを削除
+}
+}
+function ans(){
+var ans = document.getElementById("answer").value;
+if(ans == anstext){
+next();
+}
+else if(ans==""){
+alert("解答が入力されていません。");
+}else{
+alert("不正解です。\nもう一度解いてみましょう。");
+}
+}
+function bans(n){
+var ans = document.getElementById("b" + n).value;
+if(ans == anstext){
+	next();
+}else{
+	alert("不正解です。\nもう一度解いてみましょう。");
+}	
+}
+function key_on(event){
+if(event.keyCode == 13){
+ans();
+}
+}
+function reload(){
+	answered = 0;
+	next();
+document.getElementById("answer").style.display = "inline";
+document.getElementById("ansb").style.display = "inline";
 }

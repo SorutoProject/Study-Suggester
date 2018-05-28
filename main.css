@@ -6,6 +6,11 @@ body{
   background:#3c3c3c;
   color:#fafafa;
 }
+a{
+  text-align: left;
+  color:#fafafa;
+  font-size:12pt;
+}
 .ptitle{
   font-size:16pt;
   text-shadow: 5px 5px 2px #1a1a1a;
@@ -30,6 +35,14 @@ input[type="button"]{
   height:40px;
   background:#3c3c3c;
   border:#2222dd 1px solid;
+  color:#fafafa;
+}
+#answer{
+  width:calc(100% - 10px);
+  height:30px;
+  border:#daaada 1px solid;
+  margin-bottom: 5px;
+  background:#4c4c4c;
   color:#fafafa;
 }
 #seticon{
@@ -61,6 +74,7 @@ input[type="button"]{
   right:0;
   margin-bottom: 4px;
   font-size:18pt;
+  text-align: center;
 }
 }
 @media screen and (max-width:479px){
@@ -74,6 +88,7 @@ input[type="button"]{
   color:#3c3c3c;
   border-bottom:#000 3px solid;
   text-decoration:none;
+  text-align: center;
 }
   .sl:hover{
     background:#bababa;
