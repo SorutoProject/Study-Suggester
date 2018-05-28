@@ -25,7 +25,7 @@ Written by Soruto Proejct
     animation: fadeIn 0.4s ease 0s 1 normal;
 }
 .smodal-modal-closing{
-    animation: fadeOut 2s ease 0s 1 normal forwards;
+    animation: fadeOut 0.4s ease 0s 1 normal forwards;
 }
 @keyframes fadeIn {
   0% {opacity: 0}
