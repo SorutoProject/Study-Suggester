@@ -71,6 +71,7 @@ function showQdiv(q){
 		"width":"calc(100% - 50px)",
 		"height":"480px"
 		});
+	answered = 0;
 	Load(q);
 	
 	
