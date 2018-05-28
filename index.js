@@ -149,6 +149,8 @@ if(ans == anstext){
 function key_on(event){
 if(event.keyCode == 13){
 ans();
+}else if(event.keyCode == 243){
+ smodal.close();
 }
 }
 function reload(){

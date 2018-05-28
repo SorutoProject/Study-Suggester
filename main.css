@@ -92,6 +92,9 @@ input[type="button"]{
   #answer{
     width:250px;
   }
+  #question{
+    font-size:14pt;
+  }
 }
 @media screen and (max-width:479px){
 .sl{
